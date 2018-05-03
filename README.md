@@ -28,5 +28,29 @@ Step 2. Add the dependency
 
 ## 用法
 ###XML布局
+```
+<com.winton.bottomnavigationview.NavigationView
+        app:iconSize="25dp"
+        app:activeTextColor="@color/colorPrimary"
+        app:icon_margin_top="5dp"
+        app:text_margin_bottom="5dp"
+        app:textSize="14dp"
+        app:unactiveTextColor="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+    </com.winton.bottomnavigationview.NavigationView>
+```
 
 ###添加module
+```java
+ NavigationView mNV = findViewById(R.id.nv);
+        List<NavigationView.Model> tabs = new ArrayList<>();
+        tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_launcher,R.mipmap.ic_launcher).title("主页").build());
+        tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_launcher,R.mipmap.ic_launcher).title("tab1").build());
+        tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_launcher,R.mipmap.ic_launcher).title("tab2").build());
+        mNV.setItems(tabs);
+        mNV.build();
+        mNV.check(0);
+```
+

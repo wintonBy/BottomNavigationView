@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NavigationView">
+        <attr name="iconSize" format="dimension"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="activeTextColor" format="color"/>
+        <attr name="unactiveTextColor" format="color"/>
+        <attr name="icon_margin_top" format="dimension"/>
+        <attr name="text_margin_bottom" format="dimension"/>
+    </declare-styleable>
+</resources>

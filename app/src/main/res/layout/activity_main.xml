@@ -15,4 +15,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <com.winton.bottomnavigationview.NavigationView
+        android:id="@+id/nv"
+        app:iconSize="25dp"
+        app:activeTextColor="@color/colorPrimary"
+        app:icon_margin_top="5dp"
+        app:text_margin_bottom="5dp"
+        app:textSize="14dp"
+        app:unactiveTextColor="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+    </com.winton.bottomnavigationview.NavigationView>
+
 </android.support.constraint.ConstraintLayout>

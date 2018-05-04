@@ -73,18 +73,18 @@ public class NavigationItemView extends RelativeLayout {
         LayoutParams  layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-        layoutParams.setMargins(0,0,0,dp2px(getContext(),textMarginBottom));
+        layoutParams.setMargins(0,0,0,textMarginBottom);
         this.addView(tvTitle,layoutParams);
-        tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP,textSize);
+        tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize);
         tvTitle.setText(title);
         tvTitle.setTextColor( isCheck ? activeTextColor :unactiveTextColor);
 
     }
 
     private void initIcon(){
-        LayoutParams  layoutParams = new LayoutParams(dp2px(getContext(),iconSize), dp2px(getContext(),iconSize));
+        LayoutParams  layoutParams = new LayoutParams(iconSize, iconSize);
         layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-        layoutParams.setMargins(0,dp2px(getContext(),iconMarginTop),0,0);
+        layoutParams.setMargins(0,iconMarginTop,0,0);
         this.addView(ivIcon,layoutParams);
         ivIcon.setImageResource(isCheck ? activeIcon : unactiveIcon);
     }

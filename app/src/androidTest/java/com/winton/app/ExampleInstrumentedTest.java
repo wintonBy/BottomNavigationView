@@ -1,4 +1,4 @@
-package com.winton.bottomnavigationview;
+package com.winton.app;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

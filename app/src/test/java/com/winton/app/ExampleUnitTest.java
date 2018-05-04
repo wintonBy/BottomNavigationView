@@ -1,4 +1,4 @@
-package com.winton.bottomnavigationview;
+package com.winton.app;
 
 import org.junit.Test;
 

@@ -3,7 +3,6 @@ package com.winton.bottomnavigationview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -71,10 +70,10 @@ public class NavigationView extends LinearLayout{
         if(typedArray != null){
             activeTextColor = typedArray.getColor(R.styleable.NavigationView_activeTextColor,activeTextColor);
             unactiveTextColor = typedArray.getColor(R.styleable.NavigationView_unactiveTextColor,unactiveTextColor);
-            textSize = typedArray.getDimension(R.styleable.NavigationView_textSize,textSize);
-            textMarginBottom = typedArray.getDimension(R.styleable.NavigationView_text_margin_bottom,textMarginBottom);
-            iconMarginTop = typedArray.getDimension(R.styleable.NavigationView_icon_margin_top,iconMarginTop);
-            iconSize = typedArray.getDimension(R.styleable.NavigationView_iconSize,iconSize);
+            textSize = typedArray.getDimensionPixelSize(R.styleable.NavigationView_textSize,(int)textSize);
+            textMarginBottom = typedArray.getDimensionPixelSize(R.styleable.NavigationView_text_margin_bottom,(int)textMarginBottom);
+            iconMarginTop = typedArray.getDimensionPixelSize(R.styleable.NavigationView_icon_margin_top,(int)iconMarginTop);
+            iconSize = typedArray.getDimensionPixelSize(R.styleable.NavigationView_iconSize,(int)iconSize);
         }
         typedArray.recycle();
         init();

@@ -5,6 +5,8 @@
   
 ## 讨论
 　　欢迎大家加入群组讨论。 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e499491b3f42c95d62ed286d4e4b23185d9284c4b46e315fb925050bc1695c5f"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Coder" title="Coder"></a>
+ 
+ 
 ![qq_img](https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/qq.png)
 ## 使用效果
 ![screen](https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/1.gif)
@@ -25,7 +27,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 ```
 	dependencies {
-	        implementation 'com.github.wintonBy:BottomNavigationView:0.1'
+	        implementation 'com.github.wintonBy:BottomNavigationView:1.0'
 	}
 ```
 

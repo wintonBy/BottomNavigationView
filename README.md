@@ -27,7 +27,7 @@ Step 2. Add the dependency
 ```
 
 ## 用法
-###XML布局
+### XML布局
 ```
 <com.winton.bottomnavigationview.NavigationView
         app:iconSize="25dp"
@@ -42,7 +42,7 @@ Step 2. Add the dependency
     </com.winton.bottomnavigationview.NavigationView>
 ```
 
-###添加module
+### 添加module
 ```java
  NavigationView mNV = findViewById(R.id.nv);
         List<NavigationView.Model> tabs = new ArrayList<>();
@@ -53,4 +53,27 @@ Step 2. Add the dependency
         mNV.build();
         mNV.check(0);
 ```
+### 添加监听
+```java
+mNV.setOnTabSelectedListener(new NavigationView.OnTabSelectedListener() {
+            @Override
+            public void selected(int i, NavigationView.Model model) {
+                Toast.makeText(MainActivity.this,model.getTitle(),Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void unselected(int i, NavigationView.Model model) {
+
+            }
+ });
+ ```
+ ## 参数说明
+ <li>app:iconSize     图标大小</li>
+ <li>app:textSize     文字大小</li>
+ <li>app:activeTextColor     选中时文字颜色</li>
+ <li>app:unactiveTextColor     未选中时文字颜色</li>
+ <li>app:icon_margin_top     距离顶部的距离</li>
+ <li>app:text_margin_bottom     距离底部的距离</li>
+
+
 

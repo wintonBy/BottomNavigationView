@@ -4,7 +4,7 @@
   一个简单的底部导航栏，可以快速集成，简单易用
   
 ## 使用效果
-![screen]()
+![screen](https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/1.gif)
 
 ## 集成方式
 
@@ -68,11 +68,11 @@ mNV.setOnTabSelectedListener(new NavigationView.OnTabSelectedListener() {
  });
  ```
  ## 参数说明
- <li>app:iconSize     图标大小</li>
- <li>app:textSize     文字大小</li>
- <li>app:activeTextColor     选中时文字颜色</li>
- <li>app:unactiveTextColor     未选中时文字颜色</li>
- <li>app:icon_margin_top     距离顶部的距离</li>
+ <li>app:iconSize               图标大小</li>
+ <li>app:textSize               文字大小</li>
+ <li>app:activeTextColor        选中时文字颜色</li>
+ <li>app:unactiveTextColor      未选中时文字颜色</li>
+ <li>app:icon_margin_top        距离顶部的距离</li>
  <li>app:text_margin_bottom     距离底部的距离</li>
 
 

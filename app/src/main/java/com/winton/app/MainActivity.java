@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        mNV.reminder(0,true,"100");
+        mNV.reminder(1,true,"10");
+        mNV.reminder(2,true,"25");
     }
 
 }

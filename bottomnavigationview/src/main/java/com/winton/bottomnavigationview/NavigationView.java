@@ -18,7 +18,7 @@ import java.util.List;
  * @package: com.sf.smartfactory.view.bottomnavigation
  * @project: SmartFactory
  * @mail:
- * @describe: 一句话描述
+ * @describe: 导航的View
  */
 public class NavigationView extends LinearLayout{
 
@@ -107,6 +107,7 @@ public class NavigationView extends LinearLayout{
         itemView.setUnactiveIcon(item.getUnactiveIcon());
         itemView.setTitle(item.getTitle());
         itemView.setCheck(false);
+        itemView.setReminder(item.enableReminder,item.reminder);
         itemView.setActiveTextColor(activeTextColor);
         itemView.setUnactiveTextColor(unactiveTextColor);
         itemView.setIconMarginTop((int)iconMarginTop);
@@ -127,6 +128,10 @@ public class NavigationView extends LinearLayout{
 
     public static class Model{
         private String title;
+
+        private boolean enableReminder;
+
+        private String reminder;
 
         private int activeIcon = R.mipmap.ic_icon;
 
@@ -158,8 +163,18 @@ public class NavigationView extends LinearLayout{
             this.unactiveIcon = unactiveIcon;
         }
 
+        public boolean isEnableReminder() {
+            return enableReminder;
+        }
+
+        public void setEnableReminder(boolean enableReminder) {
+            this.enableReminder = enableReminder;
+        }
+
         public static class Builder{
             private String title;
+
+            private boolean enableReminder;
 
             private final int activeIcon ;
 
@@ -175,11 +190,17 @@ public class NavigationView extends LinearLayout{
                 return this;
             }
 
+            public Builder enableReminder(boolean enableReminder){
+                this.enableReminder = enableReminder;
+                return this;
+            }
+
             public Model build(){
                 Model model = new Model();
                 model.setActiveIcon(activeIcon);
                 model.setUnactiveIcon(unactiveIcon);
                 model.setTitle(title);
+                model.setEnableReminder(enableReminder);
                 return model;
             }
         }
@@ -209,6 +230,22 @@ public class NavigationView extends LinearLayout{
         }
 
     }
+
+    /**
+     * 显示reminder
+     * @param index
+     * @param show
+     * @param reminder
+     */
+    public void reminder(int index,boolean show,String reminder){
+        if(index < 0 || index >= items.size()){
+            throw new IllegalArgumentException("index should >=0 && <items.size");
+        }
+        NavigationItemView itemView = (NavigationItemView) getChildAt(index);
+        itemView.updateReminder(reminder,show);
+
+    }
+
 
     public void setOnTabSelectedListener(OnTabSelectedListener listener) {
         this.listener = listener;

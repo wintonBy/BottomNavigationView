@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -16,7 +17,7 @@ import android.widget.TextView;
  * @package: com.sf.smartfactory.view.bottomnavigation
  * @project: SmartFactory
  * @mail:
- * @describe: 一句话描述
+ * @describe:  单个ItemView
  */
 public class NavigationItemView extends RelativeLayout {
 
@@ -24,9 +25,13 @@ public class NavigationItemView extends RelativeLayout {
 
     private ImageView ivIcon;
 
+    private TextView reminderView;
+
     private boolean isCheck;
 
     private String title = "title";
+
+    private String reminder = "";
 
     private float textSize = 12;
 
@@ -39,6 +44,10 @@ public class NavigationItemView extends RelativeLayout {
     private int activeTextColor = Color.BLACK;
 
     private int unactiveTextColor = Color.GRAY;
+    /**
+     * 是否显示提醒
+     */
+    private boolean enableReminder = false;
 
     private int iconMarginTop = 5;
 
@@ -66,7 +75,31 @@ public class NavigationItemView extends RelativeLayout {
         tvTitle = new TextView(getContext());
         initTitle();
         ivIcon = new ImageView(getContext());
+        ivIcon.setId(R.id.icon);
         initIcon();
+        reminderView = new TextView(getContext());
+        initRemindView();
+    }
+
+    /**
+     * 初始化reminder view
+     */
+    private void initRemindView() {
+        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.addRule(RelativeLayout.ALIGN_LEFT,R.id.icon);
+        layoutParams.topMargin = iconMarginTop - 5;
+        layoutParams.leftMargin = iconSize - 10;
+
+        reminderView.setBackgroundResource(R.drawable.reminder_bg);
+        reminderView.setTextColor(Color.WHITE);
+        reminderView.setGravity(Gravity.CENTER);
+        reminderView.setPadding(5,5,5,5);
+        reminderView.setTextSize(TypedValue.COMPLEX_UNIT_PX,25);
+        reminderView.setMinHeight(dp2px(getContext(),10));
+        reminderView.setMinWidth(dp2px(getContext(),10));
+        this.addView(reminderView,layoutParams);
+        reminderView.setText(reminder);
+        reminderView.setVisibility(enableReminder?VISIBLE:INVISIBLE);
     }
 
     private void initTitle(){
@@ -77,6 +110,7 @@ public class NavigationItemView extends RelativeLayout {
         this.addView(tvTitle,layoutParams);
         tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize);
         tvTitle.setText(title);
+        tvTitle.setSingleLine(true);
         tvTitle.setTextColor( isCheck ? activeTextColor :unactiveTextColor);
 
     }
@@ -106,6 +140,31 @@ public class NavigationItemView extends RelativeLayout {
 
     public boolean isCheck() {
         return isCheck;
+    }
+
+    /**
+     * 设置reminder
+     * @param enableReminder
+     * @param reminder
+     */
+    public void setReminder(boolean enableReminder,String reminder){
+        this.enableReminder = enableReminder;
+        this.reminder = reminder;
+    }
+
+    /**
+     * 显示提示
+     * @param reminder
+     * @param show
+     */
+    public void updateReminder(String reminder, boolean show){
+        enableReminder = show;
+        if(!show){
+            reminderView.setVisibility(GONE);
+        }else {
+            reminderView.setVisibility(VISIBLE);
+            reminderView.setText(reminder);
+        }
     }
 
     public void setTitle(String title) {

@@ -27,7 +27,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 ```
 	dependencies {
-	        implementation 'com.github.wintonBy:BottomNavigationView:1.0'
+	        implementation 'com.github.wintonBy:BottomNavigationView:2.0'
 	}
 ```
 
@@ -72,6 +72,18 @@ mNV.setOnTabSelectedListener(new NavigationView.OnTabSelectedListener() {
             }
  });
  ```
+### 显示新消息
+```
+ /**
+ * 第一个参数代表Item的位置
+ * 第二个参数代表是否显示红点
+ * 第三个参数代表红点第内容
+ **/
+ mNV.reminder(0,true,"99");
+ mNV.reminder(1,true,"···");
+ mNV.reminder(2,true,"");
+```
+
  ## 参数说明
  <li>app:iconSize               图标大小</li>
  <li>app:textSize               文字大小</li>

@@ -4,7 +4,7 @@
   一个简单的底部导航栏，可以快速集成，简单易用
   
 ## 讨论
-　　欢迎大家加入群组讨论。 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e499491b3f42c95d62ed286d4e4b23185d9284c4b46e315fb925050bc1695c5f"><img border="0" src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/qq.png" alt="Coder" title="Coder"></a>
+　　欢迎大家加入群组讨论。 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e499491b3f42c95d62ed286d4e4b23185d9284c4b46e315fb925050bc1695c5f"><img border="0" src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/group.png" alt="Coder" title="Coder"></a>
  
  
 ![qq_img](https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/qq.png)

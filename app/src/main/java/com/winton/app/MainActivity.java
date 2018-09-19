@@ -21,12 +21,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData(){
-        NavigationView mNV = findViewById(R.id.nv);
+        final NavigationView mNV = findViewById(R.id.nv);
         mNV.setBackgroundColor(Color.GRAY);
         List<NavigationView.Model> tabs = new ArrayList<>();
         tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_launcher,R.mipmap.ic_launcher).title("主页").build());
-        tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_launcher,R.mipmap.ic_launcher).title("tab1").build());
-        tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_launcher,R.mipmap.ic_launcher).title("tab2").build());
+        tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_movie,R.mipmap.ic_movie).title("电影").build());
+        tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_music,R.mipmap.ic_music).title("音乐").build());
         mNV.setItems(tabs);
         mNV.build();
         mNV.check(0);
@@ -42,9 +42,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        mNV.reminder(0,true,"100");
-        mNV.reminder(1,true,"10");
-        mNV.reminder(2,true,"25");
+        mNV.reminder(0,true,"99");
+        mNV.reminder(1,true,"···");
+        mNV.reminder(2,true,"");
+
+        mNV.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mNV.reminder(0,false,"");
+                mNV.reminder(1,true,"");
+                mNV.reminder(2,true,"22");
+            }
+        },2000);
     }
 
 }

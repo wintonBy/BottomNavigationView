@@ -2,6 +2,7 @@ package com.winton.bottomnavigationview;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -90,16 +91,13 @@ public class NavigationItemView extends RelativeLayout {
         layoutParams.topMargin = iconMarginTop - 5;
         layoutParams.leftMargin = iconSize - 10;
 
-        reminderView.setBackgroundResource(R.drawable.reminder_bg);
         reminderView.setTextColor(Color.WHITE);
         reminderView.setGravity(Gravity.CENTER);
         reminderView.setPadding(5,5,5,5);
-        reminderView.setTextSize(TypedValue.COMPLEX_UNIT_PX,25);
         reminderView.setMinHeight(dp2px(getContext(),10));
         reminderView.setMinWidth(dp2px(getContext(),10));
         this.addView(reminderView,layoutParams);
-        reminderView.setText(reminder);
-        reminderView.setVisibility(enableReminder?VISIBLE:INVISIBLE);
+        updateReminder(reminder,enableReminder);
     }
 
     private void initTitle(){
@@ -159,10 +157,33 @@ public class NavigationItemView extends RelativeLayout {
      */
     public void updateReminder(String reminder, boolean show){
         enableReminder = show;
+        if(reminder == null){
+            reminder ="";
+        }
+        this.reminder = reminder;
         if(!show){
             reminderView.setVisibility(GONE);
         }else {
+            if(TextUtils.isEmpty(reminder)){
+                reminderView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,5);
+                reminderView.setBackgroundResource(R.drawable.reminder_bg);
+                ViewGroup.LayoutParams layoutParams = reminderView.getLayoutParams();
+                layoutParams.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                reminderView.requestLayout();
+            }else {
+
+                reminderView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,12);
+                reminderView.setBackgroundResource(R.drawable.reminder_bg_big);
+                ViewGroup.LayoutParams layoutParams = reminderView.getLayoutParams();
+                layoutParams.width = dp2px(getContext(),20);
+                layoutParams.height = dp2px(getContext(),20);
+                reminderView.requestLayout();
+            }
             reminderView.setVisibility(VISIBLE);
+            if(reminder.length() >=3){
+                reminder="···";
+            }
             reminderView.setText(reminder);
         }
     }

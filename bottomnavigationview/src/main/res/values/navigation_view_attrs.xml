@@ -7,5 +7,7 @@
         <attr name="unactiveTextColor" format="color"/>
         <attr name="icon_margin_top" format="dimension"/>
         <attr name="text_margin_bottom" format="dimension"/>
+        <attr name="lineColor" format="color"/>
+        <attr name="showLine" format="boolean"/>
     </declare-styleable>
 </resources>

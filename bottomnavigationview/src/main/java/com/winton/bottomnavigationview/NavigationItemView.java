@@ -80,6 +80,10 @@ public class NavigationItemView extends RelativeLayout {
         initIcon();
         reminderView = new TextView(getContext());
         initRemindView();
+        this.setFocusable(true);
+        tvTitle.setFocusable(false);
+        ivIcon.setFocusable(false);
+        reminderView.setFocusable(false);
     }
 
     /**

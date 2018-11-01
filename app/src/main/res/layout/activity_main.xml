@@ -7,6 +7,7 @@
     tools:context="com.winton.app.MainActivity">
 
     <TextView
+        android:id="@+id/tv_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -18,14 +19,11 @@
     <com.winton.bottomnavigationview.NavigationView
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/nv"
-        app:iconSize="25dp"
-        app:activeTextColor="@color/colorPrimary"
-        app:icon_margin_top="5dp"
-        app:text_margin_bottom="5dp"
-        app:textSize="14dp"
-        app:unactiveTextColor="@color/colorAccent"
+        android:background="@android:color/white"
+        app:activeTextColor="@android:color/black"
+        app:unactiveTextColor="#666666"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="60dp">
 
     </com.winton.bottomnavigationview.NavigationView>
 

@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 
@@ -20,11 +21,15 @@ import java.util.List;
  * @mail:
  * @describe: 导航的View
  */
-public class NavigationView extends LinearLayout{
+public class NavigationView extends FrameLayout {
 
     private List<Model> items;
 
     private OnTabSelectedListener listener;
+
+    private LinearLayout itemContainer;
+
+    private View line;
 
     /**
      * 选中时文字颜色
@@ -38,21 +43,28 @@ public class NavigationView extends LinearLayout{
     /**
      * icon到顶部的距离
      */
-    private float iconMarginTop = 5;
+    private float iconMarginTop = NavigationItemView.dp2px(getContext(),5);
 
     /**
      * text到底部的距离
      */
-    private float textMarginBottom = 5;
-
+    private float textMarginBottom = NavigationItemView.dp2px(getContext(),5);
     /**
      * 文字大小
      */
-    private float textSize = 12;
+    private float textSize = NavigationItemView.dp2px(getContext(),14);
     /**
      * icon大小
      */
-    private float iconSize = 25;
+    private float iconSize = NavigationItemView.dp2px(getContext(),25);
+
+    /**
+     * 线的颜色
+     */
+    private int lineColor = Color.GRAY;
+
+    private boolean showline = true;
+
 
     private int checkIndex = -1;
 
@@ -74,13 +86,23 @@ public class NavigationView extends LinearLayout{
             textMarginBottom = typedArray.getDimensionPixelSize(R.styleable.NavigationView_text_margin_bottom,(int)textMarginBottom);
             iconMarginTop = typedArray.getDimensionPixelSize(R.styleable.NavigationView_icon_margin_top,(int)iconMarginTop);
             iconSize = typedArray.getDimensionPixelSize(R.styleable.NavigationView_iconSize,(int)iconSize);
+            lineColor = typedArray.getColor(R.styleable.NavigationView_lineColor,lineColor);
+            showline = typedArray.getBoolean(R.styleable.NavigationView_showLine,showline);
+            typedArray.recycle();
         }
-        typedArray.recycle();
         init();
     }
 
     private void init(){
-        this.setOrientation(HORIZONTAL);
+        itemContainer = new LinearLayout(this.getContext());
+        itemContainer.setOrientation(LinearLayout.HORIZONTAL);
+        LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+        params.topMargin = 1;
+        this.addView(itemContainer,params);
+        line = new View(this.getContext());
+        LayoutParams lineParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,1);
+        line.setBackgroundColor(lineColor);
+        this.addView(line,lineParams);
     }
 
     public void setItems(List<Model> items) {
@@ -97,8 +119,10 @@ public class NavigationView extends LinearLayout{
     }
 
     public void build(){
-        this.removeAllViews();
+        itemContainer.removeAllViews();
+        itemContainer.setWeightSum(items.size());
         addChild();
+        check(0);
     }
 
     private void addChildView(Model item, final int index){
@@ -115,8 +139,8 @@ public class NavigationView extends LinearLayout{
         itemView.setTextSize(textSize);
         itemView.setIconSize((int)iconSize);
         itemView.build();
-        LayoutParams layoutParams = new LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,1);
-        this.addView(itemView,layoutParams);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT,1);
+        itemContainer.addView(itemView,layoutParams);
         itemView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -214,13 +238,16 @@ public class NavigationView extends LinearLayout{
         if(checkIndex == index){
             return;
         }
-        if(listener != null && checkIndex != -1){
+        if(listener != null){
             listener.selected(index,items.get(index));
-            listener.unselected(checkIndex,items.get(checkIndex));
+            if(checkIndex != -1){
+                //第一次 不需要unselect
+                listener.unselected(checkIndex,items.get(checkIndex));
+            }
         }
         checkIndex = index;
-        for(int i = 0;i< getChildCount();i++){
-           NavigationItemView itemView =  (NavigationItemView) getChildAt(i);
+        for(int i = 0;i< itemContainer.getChildCount();i++){
+           NavigationItemView itemView =  (NavigationItemView) itemContainer.getChildAt(i);
            if(i == checkIndex){
                itemView.setCheck(true);
            }else {
@@ -241,7 +268,7 @@ public class NavigationView extends LinearLayout{
         if(index < 0 || index >= items.size()){
             throw new IllegalArgumentException("index should >=0 && <items.size");
         }
-        NavigationItemView itemView = (NavigationItemView) getChildAt(index);
+        NavigationItemView itemView = (NavigationItemView) itemContainer.getChildAt(index);
         itemView.updateReminder(reminder,show);
 
     }

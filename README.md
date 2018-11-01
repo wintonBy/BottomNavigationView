@@ -15,9 +15,9 @@
 <div align="left">
 默认<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/default.png" width="400"/><br>
 
-无分割线<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/default.png" width="400"/><br>
+无分割线<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/noline.png" width="400"/><br>
 
-自定义线<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/default.png" width="400"/>
+自定义线<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/cutomline.png" width="400"/>
 </div>
 
 ## 集成方式

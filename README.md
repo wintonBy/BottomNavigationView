@@ -12,15 +12,18 @@
 <div>
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/demo.png" width="320"/>
 </div>
-<div algin="center">
-    <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/default.png" width="320"/><br>默认<br>
-    <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/online.png" width="320"/><br>无线<br>
-    <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/customline.png" width="320"/><br>自定义线<br>
+<div align="center">
+    默认<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/default.png" width="400"/><br>
+
+    无分割线<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/online.png" width="400"/><br>
+
+    自定义线<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/customline.png" width="400"/>
 </div>
 
 ## 集成方式
 
-###gradle
+### gradle
+
 Step 1. Add the JitPack repository to your build file
 Add it in your root build.gradle at the end of repositories:
 ```

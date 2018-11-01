@@ -122,6 +122,9 @@ public class NavigationView extends FrameLayout {
         itemContainer.removeAllViews();
         itemContainer.setWeightSum(items.size());
         addChild();
+        if(showline){
+            line.setVisibility(INVISIBLE);
+        }
         check(0);
     }
 

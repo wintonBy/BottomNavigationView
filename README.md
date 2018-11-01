@@ -29,7 +29,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 ```
 	dependencies {
-	        implementation 'com.github.wintonBy:BottomNavigationView:2.2'
+	        implementation 'com.github.wintonBy:BottomNavigationView:2.3'
 	}
 ```
 
@@ -92,6 +92,8 @@ mNV.setOnTabSelectedListener(new NavigationView.OnTabSelectedListener() {
  <li>app:unactiveTextColor      未选中时文字颜色</li>
  <li>app:icon_margin_top        距离顶部的距离</li>
  <li>app:text_margin_bottom     距离底部的距离</li>
+ <li>app:lineColor              分割线到颜色</li>
+ <li>app:showLine               是否显示风割线</li>
  
  ## License
  Copyright 2018 Winton

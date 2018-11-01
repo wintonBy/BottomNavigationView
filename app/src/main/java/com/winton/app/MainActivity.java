@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initData();
     }
-
     private void initData(){
         final NavigationView mNV = findViewById(R.id.nv);
         List<NavigationView.Model> tabs = new ArrayList<>();

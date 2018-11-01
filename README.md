@@ -9,7 +9,9 @@
  
 ![qq_img](https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/qq.png)
 ## 使用效果
-![screen](https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/1.gif)
+<div>
+    <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/demo.png" width="200"/>
+</div>
 
 ## 集成方式
 
@@ -27,23 +29,21 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 ```
 	dependencies {
-	        implementation 'com.github.wintonBy:BottomNavigationView:2.0'
+	        implementation 'com.github.wintonBy:BottomNavigationView:2.2'
 	}
 ```
 
 ## 用法
 ### XML布局
 ```
-<com.winton.bottomnavigationview.NavigationView
-        app:iconSize="25dp"
-        app:activeTextColor="@color/colorPrimary"
-        app:icon_margin_top="5dp"
-        app:text_margin_bottom="5dp"
-        app:textSize="14dp"
-        app:unactiveTextColor="@color/colorAccent"
+    <com.winton.bottomnavigationview.NavigationView
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/nv"
+        android:background="@android:color/white"
+        app:activeTextColor="@android:color/black"
+        app:unactiveTextColor="#666666"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
-
+        android:layout_height="60dp">
     </com.winton.bottomnavigationview.NavigationView>
 ```
 
@@ -55,8 +55,9 @@ Step 2. Add the dependency
         tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_launcher,R.mipmap.ic_launcher).title("tab1").build());
         tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_launcher,R.mipmap.ic_launcher).title("tab2").build());
         mNV.setItems(tabs);
+        /*在此处监听，可获取到第一次选中到结果*/
         mNV.build();
-        mNV.check(0);
+        //mNV.check(0); //2.2 版本之后默认选中0
 ```
 ### 添加监听
 ```java

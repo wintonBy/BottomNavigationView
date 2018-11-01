@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     }
     private void initData(){
         final NavigationView mNV = findViewById(R.id.nv);
+        final NavigationView mNV2 = findViewById(R.id.nv2);
+        final NavigationView mNV3 = findViewById(R.id.nv3);
         List<NavigationView.Model> tabs = new ArrayList<>();
         tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_index,R.mipmap.ic_index_unchek).title("主页").build());
         tabs.add(new NavigationView.Model.Builder(R.mipmap.ic_music,R.mipmap.ic_music_uncheck).title("音乐").build());
@@ -43,14 +45,23 @@ public class MainActivity extends AppCompatActivity {
         mNV.reminder(1,true,"···");
         mNV.reminder(2,true,"");
 
-        mNV.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mNV.reminder(0,false,"");
-                mNV.reminder(1,true,"");
-                mNV.reminder(2,true,"22");
-            }
-        },2000);
+        List<NavigationView.Model> tab2s = new ArrayList<>();
+        tab2s.add(new NavigationView.Model.Builder(R.mipmap.ic_index,R.mipmap.ic_index_unchek).title("主页").build());
+        tab2s.add(new NavigationView.Model.Builder(R.mipmap.ic_music,R.mipmap.ic_music_uncheck).title("音乐").build());
+        tab2s.add(new NavigationView.Model.Builder(R.mipmap.ic_movie,R.mipmap.ic_movie_unchek).title("电影").build());
+        mNV2.setItems(tab2s);
+        mNV2.build();
+        mNV2.reminder(2,true,"10");
+
+
+        List<NavigationView.Model> tab3s = new ArrayList<>();
+        tab3s.add(new NavigationView.Model.Builder(R.mipmap.ic_index,R.mipmap.ic_index_unchek).title("主页").build());
+        tab3s.add(new NavigationView.Model.Builder(R.mipmap.ic_music,R.mipmap.ic_music_uncheck).title("音乐").build());
+        tab3s.add(new NavigationView.Model.Builder(R.mipmap.ic_movie,R.mipmap.ic_movie_unchek).title("电影").build());
+        mNV3.setItems(tab3s);
+        mNV3.build();
+        mNV3.reminder(1,false,"");
+
     }
 
 }

@@ -2,7 +2,6 @@ package com.winton.bottomnavigationview;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -72,7 +71,6 @@ public class NavigationItemView extends RelativeLayout {
         init();
     }
 
-    @RequiresApi(21)
     private void init(){
         tvTitle = new TextView(getContext());
         initTitle();
@@ -85,7 +83,7 @@ public class NavigationItemView extends RelativeLayout {
         tvTitle.setFocusable(false);
         ivIcon.setFocusable(false);
         reminderView.setFocusable(false);
-        setBackground(getResources().getDrawable(R.drawable.item_bg,null));
+        setBackgroundDrawable(getResources().getDrawable(R.drawable.item_bg));
     }
 
     /**

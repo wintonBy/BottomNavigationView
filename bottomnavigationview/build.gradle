@@ -1,9 +1,9 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven-publish'
 
 
 group='com.github.wintonBy'
-version = '3.0'
+version = '3.1'
 
 android {
     compileSdkVersion 28
@@ -61,4 +61,22 @@ artifacts {
     archives classesJar
     archives javadocJar
     archives sourcesJar
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "bottomnavigationview"
+            url = uri("https://maven.pkg.github.com/wintonBy/BottomNavigationView")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("PASSWORD")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+        }
+    }
 }

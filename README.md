@@ -3,11 +3,9 @@
 ## 简介
   一个简单的底部导航栏，可以快速集成，简单易用
   
-## 讨论
+## 问题反馈
 　　欢迎大家加入群组讨论。 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e499491b3f42c95d62ed286d4e4b23185d9284c4b46e315fb925050bc1695c5f"><img border="0" src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/group.png" alt="Coder" title="Coder"></a>
- 
- 
-![qq_img](https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/qq.png)
+![qq_img][qq_img]
 ## 使用效果
 <div>
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/demo.png" width="320"/>
@@ -23,21 +21,10 @@
 ## 集成方式
 
 ### gradle
-
-Step 1. Add the JitPack repository to your build file
-Add it in your root build.gradle at the end of repositories:
-```
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-```
-Step 2. Add the dependency
+Step 1. Add the dependency
 ```
 	dependencies {
-	        implementation 'com.github.wintonBy:BottomNavigationView:2.5'
+	        implementation 'com.winton:bottomnavigationview:1.0.0'
 	}
 ```
 
@@ -119,6 +106,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 [logo]: https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/BNV.png
+[qq_img]: https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/qq.png
  
 
 

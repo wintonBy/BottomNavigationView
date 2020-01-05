@@ -25,7 +25,7 @@ allprojects {
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/google/' }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/gradle-plugin/' }
-        maven {url 'https://dl.bintray.com/wintonby/android'}
+//        maven {url 'https://dl.bintray.com/wintonby/android'}
         jcenter()
         google()
     }

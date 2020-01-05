@@ -1,7 +1,7 @@
 <div align="center">
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/BNV.png" height="240"/>
 </div>
-------
+
 ## 简介
   一个简单的底部导航栏，可以快速集成，简单易用
   

@@ -1,4 +1,4 @@
-# BottomNavigationView
+![logo][logo]
 ------
 ## 简介
   一个简单的底部导航栏，可以快速集成，简单易用
@@ -117,6 +117,8 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+[logo]: https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/BNV.png
  
 
 

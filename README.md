@@ -1,4 +1,6 @@
-![logo][logo]
+<div align="center">
+    <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/BNV.png" height="240"/>
+</div>
 ------
 ## 简介
   一个简单的底部导航栏，可以快速集成，简单易用
@@ -23,9 +25,9 @@
 ### gradle
 Step 1. Add the dependency
 ```
-	dependencies {
-	        implementation 'com.winton:bottomnavigationview:1.0.0'
-	}
+dependencies {
+    implementation 'com.winton:bottomnavigationview:1.0.0'
+}
 ```
 
 ## 用法

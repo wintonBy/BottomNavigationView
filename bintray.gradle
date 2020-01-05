@@ -1,0 +1,85 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+// read properties
+def organizationId = 'wintonby'
+def repoName = 'android'
+def projectGroupId = 'com.winton'
+def projectName = 'bottomnavigationview'
+def projectArtifactId = 'bottomnavigationview'
+def projectVersionName = '1.0.0'
+def projectPackaging = 'aar'
+def projectSiteUrl = 'https://github.com/wintonBy/BottomNavigationView'
+def projectGitUrl = 'https://github.com/wintonBy/BottomNavigationView'
+
+def developerId = 'wintonBy'
+def developerName = 'wintonBy'
+def developerEmail = 'winton_by@126.com'
+
+//生成sources.jar
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+// This generates POM.xml with proper parameters
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                name projectName
+                groupId projectGroupId
+                artifactId projectArtifactId
+                version projectVersionName
+                packaging projectPackaging
+                url projectSiteUrl
+                developers {
+                    developer {
+                        id developerId
+                        name developerName
+                        email developerEmail
+                    }
+                 }
+                licenses {
+                    license {
+                        name "The Apache Software License, Version 2.0"
+                        url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        distribution "repo"
+                    }
+                }
+                scm {
+                    connection projectGitUrl
+                    developerConnection projectGitUrl
+                    url projectSiteUrl
+                }
+            }
+        }
+    }
+}
+
+// bintray configuration
+bintray {
+    user = System.getenv('bintray.user')
+    key = System.getenv('bintraykey')
+    configurations = ['archives']
+    publish = true
+    pkg {
+        repo = repoName
+        name = projectName
+        userOrg = organizationId
+        desc = 'This ia a simple navigation view library'
+        websiteUrl = projectSiteUrl
+        vcsUrl = projectGitUrl
+        licenses = ['Apache-2.0']
+        labels = ['android', 'library']
+        publicDownloadNumbers = true
+        version {
+             name = projectVersionName
+             released = new Date()
+        }
+    }
+}

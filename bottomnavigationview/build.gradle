@@ -1,21 +1,16 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
+//apply from: '../bintray.gradle'
+apply plugin: 'com.novoda.bintray-release'
 
-
-group='com.github.wintonBy'
-version = '3.1'
+version = '1.0.0'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        targetSdkVersion 29
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -29,54 +24,20 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 }
 
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.sourceFiles
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-task classesJar(type: Jar) {
-    from "$buildDir/intermediates/classes/release"
-}
-
-artifacts {
-    archives classesJar
-    archives javadocJar
-    archives sourcesJar
-}
-
-publishing {
-    repositories {
-        maven {
-            name = "bottomnavigationview"
-            url = uri("https://maven.pkg.github.com/wintonBy/BottomNavigationView")
-            credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") ?: System.getenv("PASSWORD")
-            }
-        }
-    }
-    publications {
-        gpr(MavenPublication) {
-            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
-        }
-    }
+publish {
+    repoName = 'android'
+    userOrg = 'wintonby'
+    groupId = 'com.winton'
+    artifactId = 'bottomnavigationview'
+    publishVersion = version
+    desc = 'This ia a simple navigation view library'
+    website = 'https://github.com/wintonBy/BottomNavigationView'
 }

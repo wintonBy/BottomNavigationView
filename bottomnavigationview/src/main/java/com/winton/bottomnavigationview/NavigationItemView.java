@@ -14,11 +14,6 @@ import android.widget.TextView;
 
 /**
  * @author: winton
- * @time: 2018/5/3 13:34
- * @package: com.sf.smartfactory.view.bottomnavigation
- * @project: SmartFactory
- * @mail:
- * @describe:  单个ItemView
  */
 public class NavigationItemView extends RelativeLayout {
 

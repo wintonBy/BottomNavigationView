@@ -10,16 +10,18 @@
 <br>
 ![qq_img][qq_img]
 ## 使用效果
-<div>
+<div align="center" font-size="small">
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/demo.png" width="320"/>
 </div>
-<div align="center">
+<div align="center" f>
 <br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/default.png" width="400"/><br>
 默认
 
-无分割线<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/noline.png" width="400"/><br>
+<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/noline.png" width="400"/><br>
+无分割线
 
-自定义线<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/cutomline.png" width="400"/>
+<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/cutomline.png" width="400"/>
+自定义线
 </div>
 
 ## 集成方式

@@ -13,7 +13,7 @@
 <div align="center">
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/demo.png" width="320"/>
     <br>
-    <span style="font-size:xx-small">整体效果</span>
+    <span style="font-size:12px color:#0a0a0a">整体效果</span>
     <br>
     <br>
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/default.png" width="400"/>

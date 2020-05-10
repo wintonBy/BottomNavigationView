@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/BNV.png" height="240"/>
+    <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/BNV.png" height="120"/>
 </div>
 
 ## 简介
@@ -7,13 +7,15 @@
   
 ## 问题反馈
 　　欢迎大家加入群组讨论。 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e499491b3f42c95d62ed286d4e4b23185d9284c4b46e315fb925050bc1695c5f"><img border="0" src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/group.png" alt="Coder" title="Coder"></a>
+<br>
 ![qq_img][qq_img]
 ## 使用效果
 <div>
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/demo.png" width="320"/>
 </div>
-<div align="left">
-默认<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/default.png" width="400"/><br>
+<div align="center">
+<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/default.png" width="400"/><br>
+默认
 
 无分割线<br><img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/noline.png" width="400"/><br>
 

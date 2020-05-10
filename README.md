@@ -10,8 +10,9 @@
 <br>
 ![qq_img][qq_img]
 ## 使用效果
-<div align="center" font-size="small">
+<div align="center" font-size="xx-small">
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/demo.png" width="320"/>
+    <br>
     整体效果
     <br>
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/default.png" width="400"/>
@@ -19,6 +20,7 @@
     默认
     <br>
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/noline.png" width="400"/>
+    <br>
     无分割线
     <br>
     <img src="https://github.com/wintonBy/BottomNavigationView/blob/master/app/screen/cutomline.png" width="400"/>

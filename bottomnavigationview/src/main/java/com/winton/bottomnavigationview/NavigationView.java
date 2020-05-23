@@ -24,11 +24,8 @@ import java.util.List;
 public class NavigationView extends FrameLayout {
 
     private List<Model> items;
-
     private OnTabSelectedListener listener;
-
     private LinearLayout itemContainer;
-
     private View line;
 
     /**
@@ -63,7 +60,7 @@ public class NavigationView extends FrameLayout {
      */
     private int lineColor = Color.GRAY;
 
-    private boolean showline = true;
+    private boolean showLine = true;
 
 
     private int checkIndex = -1;
@@ -73,23 +70,17 @@ public class NavigationView extends FrameLayout {
     }
 
     public NavigationView(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
-    }
-
-    public NavigationView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(context, attrs);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.NavigationView);
-        if(typedArray != null){
-            activeTextColor = typedArray.getColor(R.styleable.NavigationView_activeTextColor,activeTextColor);
-            unactiveTextColor = typedArray.getColor(R.styleable.NavigationView_unactiveTextColor,unactiveTextColor);
-            textSize = typedArray.getDimensionPixelSize(R.styleable.NavigationView_textSize,(int)textSize);
-            textMarginBottom = typedArray.getDimensionPixelSize(R.styleable.NavigationView_text_margin_bottom,(int)textMarginBottom);
-            iconMarginTop = typedArray.getDimensionPixelSize(R.styleable.NavigationView_icon_margin_top,(int)iconMarginTop);
-            iconSize = typedArray.getDimensionPixelSize(R.styleable.NavigationView_iconSize,(int)iconSize);
-            lineColor = typedArray.getColor(R.styleable.NavigationView_lineColor,lineColor);
-            showline = typedArray.getBoolean(R.styleable.NavigationView_showLine,showline);
-            typedArray.recycle();
-        }
+        activeTextColor = typedArray.getColor(R.styleable.NavigationView_activeTextColor,activeTextColor);
+        unactiveTextColor = typedArray.getColor(R.styleable.NavigationView_unactiveTextColor,unactiveTextColor);
+        textSize = typedArray.getDimensionPixelSize(R.styleable.NavigationView_textSize,(int)textSize);
+        textMarginBottom = typedArray.getDimensionPixelSize(R.styleable.NavigationView_text_margin_bottom,(int)textMarginBottom);
+        iconMarginTop = typedArray.getDimensionPixelSize(R.styleable.NavigationView_icon_margin_top,(int)iconMarginTop);
+        iconSize = typedArray.getDimensionPixelSize(R.styleable.NavigationView_iconSize,(int)iconSize);
+        lineColor = typedArray.getColor(R.styleable.NavigationView_lineColor,lineColor);
+        showLine = typedArray.getBoolean(R.styleable.NavigationView_showLine, showLine);
+        typedArray.recycle();
         init();
     }
 
@@ -122,7 +113,7 @@ public class NavigationView extends FrameLayout {
         itemContainer.removeAllViews();
         itemContainer.setWeightSum(items.size());
         addChild();
-        if(!showline){
+        if(!showLine){
             line.setVisibility(INVISIBLE);
         }
         check(0);
@@ -155,13 +146,9 @@ public class NavigationView extends FrameLayout {
 
     public static class Model{
         private String title;
-
         private boolean enableReminder;
-
         private String reminder;
-
         private int activeIcon = R.mipmap.ic_icon;
-
         private int unactiveIcon = R.mipmap.ic_icon;
 
 
